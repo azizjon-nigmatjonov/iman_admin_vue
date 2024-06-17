@@ -1,0 +1,41 @@
+configVersion: 1
+project: admin
+---
+image: build
+from: node:16.13.2-alpine
+fromCacheVersion: {{ div .Commit.Date.Unix (mul 60 60 24 30) }}
+git:
+- add: /
+  to: /app
+  excludePaths:
+  - .helm
+  - .gitlab-ci.yml
+  - werf.yaml
+  - '.env*'
+  stageDependencies:
+    install:
+    - 'package*.json'
+shell:
+  beforeInstall:
+    - apk update && apk add yarn 
+  install:
+  - cd /app
+  - yarn install
+  - echo "NODE_ENV={{ env "NODE_ENV" }} VUE_APP_API_BASE_URL={{ env "VUE_APP_API_BASE_URL" }} VUE_APP_CDN_URL={{ env "VUE_APP_CDN_URL" }} VUE_APP_PREVIEW={{ env "VUE_APP_PREVIEW" }} yarn build"
+  - NODE_ENV={{ env "NODE_ENV" }} VUE_APP_API_BASE_URL={{ env "VUE_APP_API_BASE_URL" }} VUE_APP_CDN_URL={{ env "VUE_APP_CDN_URL" }} VUE_APP_PREVIEW={{ env "VUE_APP_PREVIEW" }} yarn build
+
+---
+image: nginx
+from: nginx:1.21.6-alpine
+fromCacheVersion: {{ div .Commit.Date.Unix (mul 60 60 24 30) }}
+import:
+- image: build
+  add: /app/dist
+  to: /app
+  after: install
+shell:
+  beforeInstall:
+    - apk update && apk add curl
+---
+image: nginx_exporter
+from: nginx/nginx-prometheus-exporter:0.9.0

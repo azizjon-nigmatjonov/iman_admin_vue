@@ -1,0 +1,23 @@
+export default {
+        'customer.first_name': [{ required: true, message: 'Пожалуйста, заполните поле имя', trigger: 'blur' }],
+        'customer.last_name': [{ required: true, message: 'Пожалуйста, заполните поле фамилия', trigger: 'blur' }],
+        'customer.patronymic': [{ required: true, message: 'Пожалуйста, заполните поле отчество', trigger: 'blur' }],
+        'customer.birthday': [{ required: true, message: 'Пожалуйста, заполните поле день рождения', trigger: 'blur' }],
+        'customer.phone_number': [{ required: true, message: 'Пожалуйста, заполните поле телефонный номер', trigger: 'blur' }],
+        'customer.work_phone_number': [{ required: true, message: 'Пожалуйста, заполните поле номер офиса', trigger: 'blur' }],
+        'customer.card_number': [{ required: true, message: 'Пожалуйста, заполните поле номер карты', trigger: 'blur' }],
+        'customer.job_organization': [{ required: true, message: 'Пожалуйста, заполните поле название Организация', trigger: 'blur' }],
+        'customer.address_registration': [{ required: true, message: 'Пожалуйста, заполните поле адрес регистрации', trigger: 'blur' }],
+        'customer.education': [{ required: true, message: 'Пожалуйста, заполните поле образование', trigger: 'blur' }],
+        'customer.profession': [{ required: true, message: 'Пожалуйста, заполните поле профессия', trigger: 'blur' }],
+        'customer.score': [{ required: true, message: 'Пожалуйста, заполните поле название оценка', trigger: 'blur' }],
+        'customer.childrens': [{ required: true, message: 'Пожалуйста, заполните поле количество детей', trigger: 'blur' }],
+        'expiry_date': [{ required: true, message: 'Пожалуйста, заполните поле срок годности', trigger: 'blur' }],
+        'expiry_month_count': [{ required: true, message: 'Пожалуйста, заполните поле expiry_month_count', trigger: 'blur' }],
+        'installment_amount': [{ required: true, message: 'Пожалуйста, заполните поле installment_amount', trigger: 'blur' }],
+        'price_in_merchant': [{ required: true, message: 'Пожалуйста, заполните поле price_in_merchant', trigger: 'blur' }],
+        'percent_markup': [{ required: true, message: 'Пожалуйста, заполните поле percent_markup', trigger: 'blur' }],
+        'per_month_amount': [{ required: true, message: 'Пожалуйста, заполните поле per_month_amount', trigger: 'blur' }],
+        'data': [{ required: true, message: 'Пожалуйста, заполните поле', trigger: 'blur' }],
+        'commentary': [{ required: true, message: 'Пожалуйста, заполните поле комментарий', trigger: 'blur' }]
+}

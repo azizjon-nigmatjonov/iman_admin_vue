@@ -1,0 +1,8 @@
+giterminismConfigVersion: 1
+config:
+  goTemplateRendering:
+    allowEnvVariables:
+      - NODE_ENV
+      - VUE_APP_PREVIEW
+      - VUE_APP_API_BASE_URL
+      - VUE_APP_CDN_URL
